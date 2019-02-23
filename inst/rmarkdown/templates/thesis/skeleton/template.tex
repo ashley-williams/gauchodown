@@ -1,248 +1,454 @@
-%%%---PREAMBLE---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[twoside,12pt,final]{ucthesis-CA2012}
+%Time-stamp: "Last modified: 2018-08-02 10:42:16 (d_yasaki)"
+\documentclass[ms]{uncgdissertationexp}
+% default is 12pt, phd, doublespaced.
+% Masters students should use the ma on as shown below.
+% \documentclass[ma]{uncgdissertation}
 
-% fix for pandoc 1.14
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+%%------------------------------------------------------------------%%
+%%------------------------- Import Packages ------------------------%%
+%%------------------------------------------------------------------%%
+%% This is where you can put other packages that you may need.
+\usepackage{microtype, amsmath, amsfonts, amsthm, graphicx, booktabs}
+\usepackage[colorlinks=false]{hyperref}
+\pdfstringdefDisableCommands{\let\MakeUppercase\relax}
+%\usepackage{showframe}
+%useful package tio ensure margins are correct.
+%%------------------------------------------------------------------%%
+%%--------------------------- Content ------------------------------%%
+%%------------------------------------------------------------------%%
+%% Members of committee.  Guidelines say don't use Dr.
+%% Masters students are required to have chair plus two
+%% PhD students require chair plus three.
+%% The class can handle up to chair plus five.
+\chair{Niels Henrik Abel}
+\chair{Fran\c{c}ois Bruhat}
+\member{Augustine-Louis Cauchy}
+\member{Johann Peter Gustav Lejeune Dirichlet}
+\member{Leonhard Euler}
 
-%--- Packages ---------------------------------------------------------
-\usepackage[lofdepth,lotdepth,caption=false]{subfig}
-\usepackage{fancyhdr}
-\usepackage{amsmath, amssymb, graphicx}
-\usepackage{xspace}
-\usepackage{braket}
-\usepackage{color}
-\usepackage{setspace}
-\usepackage{fancyvrb}
-\usepackage{array}
-\usepackage{ifxetex,ifluatex}
-\usepackage{etoolbox}
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{tabu}
-\usepackage{longtable}
-\usepackage{titlesec}
-%---New Definitions and Commands------------------------------------------------------
+%% Your name goes here.
+% \student{Firstname}{Lastname}
+%% Some other options
+\student{Joe Michael}{Schmoe}  % a full middle name
+%\student{Joe M.}{Schmoe}       % a middle initial
 
-\newtheorem{theorem}{Jibberish}
+%% Thesis Title
+%%    +  Capitalize first letter of important words.
+%%    +  Use inverted pyramid shape if title spans more than one line.
+%%  Note: You can force break the title onto multiple lines using
+%%  \break instead of \\.
+\title{Sample Using the New UNCG Dissertation Class with Tips}
 
-\bibliography{references}
+%% Degree year.
+\degreeyear{2019}
 
-\hyphenation{mar-gin-al-ia}
+%%------------------------------------------------------------------%%
+%%----------------------- Personal Macros --------------------------%%
+%%------------------------------------------------------------------%%
+%% A central location to add your favorite macros.  A few examples are
+%% given below.  See tips for samples.
 
-% from uw_template.tex
+%% In order to get singlespacing, uncomment the line below.
+%\renewcommand{\doublespacing}{\singlespacing}
 
-% commands and environments needed by pandoc snippets
-% extracted from the output of `pandoc -s`
-%% Make R markdown code chunks work
+%% Theorem, Lemma, etc. environments.  You can rename if you wish.
+% Theorem style and numbering convention
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{algorithm}[theorem]{Algorithm}
 
-\ifxetex
-  \usepackage{fontspec,xltxtra,xunicode}
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-\else
-  \ifluatex
-    \usepackage{fontspec}
-    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \else
-    \usepackage[utf8]{inputenc}
-  \fi
-\fi
-\DefineShortVerb[commandchars=\\\{\}]{\|}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+% Definition type object style and numbering convention
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
 
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex,
-              colorlinks=true,
-              linkcolor=blue]{hyperref}
-\else
-  \usepackage[unicode=true,
-              colorlinks=true,
-              linkcolor=blue]{hyperref}
-\fi
-\hypersetup{breaklinks=true, pdfborder={0 0 0}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
+% Remark type object style and numbering
+\theoremstyle{remark}
+\newtheorem*/-*
+\end{dedication}
 
-%---Set Margins ------------------------------------------------------
-\setlength\oddsidemargin{0.25 in} \setlength\evensidemargin{0.25 in} \setlength\textwidth{6.25 in} \setlength\textheight{8.50 in}
-\setlength\footskip{0.25 in} \setlength\topmargin{0 in} \setlength\headheight{0.25 in} \setlength\headsep{0.25 in}
+%%------------------------------------------------------------------%%
+%%------------------------ Approval page  --------------------------%%
+%%------------------------------------------------------------------%%
+%% The approval page is required.  If all of your infomation is entered
+%% correctly in the contents section, this should come out correctly.
+\makeapprovalpage
 
-%%%---DOCUMENT---%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
+%%------------------------------------------------------------------%%
+%%-------------------------- Acknowledgements ----------------------%%
+%%------------------------------------------------------------------%%
+%% The acknowledgements are optional but highly recommended.  See tips
+%% for details.
+\begin{acknowledgments}
+It is customary to recognize the assistance of the advisor and/or
+committee chair, all other members of the committee, and only those
+organizations and/or persons who actually aided the research. If
+financial support was provided to make the study possible, credit for
+such assistance should be given.
+\end{acknowledgments}
 
-%=== Preliminary Pages ============================================
-\begin{ucfrontmatter}
-
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % TITLE PAGE INFORMATION %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  \title{$title$}
-
-  \author{$author$}
-
-  \report{Dissertation} \degree{Doctor of Philosophy} \degreemonth{$degree_month$} \degreeyear{$degree_year$}
-  \defensemonth{$defense_month$}
-  \defenseyear{$defense_year$}
-
-  \chair{$chair$}  % this is your advisor
-  \othermemberA{$signature1$} % This is a member of your committee
-  \othermemberB{$signature2$} % This is a member of your committee
-  \othermemberC{$signature3$} % This is a member of your committee (if your department requires 4 members)
-  \numberofmembers{4} % should match the number of entries above (chair + othermembers)
-
-  \field{$program$}
-  \campus{$uc_campus$}
-	\maketitle
-	\approvalpage
-	\copyrightpage
-
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % DEDICATION PAGE INFORMATION %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-    \begin{dedication}
-
-      \vspace*{25ex}
-
-      \begin{center}
-      \begin{Large}
-
-        $dedication$
-
-      \end{Large}
-
-      \end{center}
-
-  \end{dedication}
-  \begin{acknowledgements}
-    $acknowledgments$
-  \end{acknowledgements}
-  %%%%%%
-  % CV %
-  %%%%%%
-  \begin{vitae}
-    \addcontentsline{toc}{chapter}{Curriculum Vitae}
-
-    \begin{vitaesection}{Education}
-    \vspace{-0.1cm}
-    \item [2018]	Ph.D. in Environmental Science and Management (Expected), University of California, Santa Barbara.
-    \item [2010]	MESM in in Environmental Science and Management, University of California, Santa Barbara.
-    \item [2007]	B.S. in Ecosystem Science and Policy and Biology, University of Miami
-    \end{vitaesection}
-
-    \textbf{Publications}
-
-    Anderson, S.C., Cooper, A.B., Jensen, O.P., Minto, C., Thorson, J.T., Walsh, J.C., Afflerbach, J., Dickey‐Collas, M., Kleisner, K.M., Longo, C., Osio, G.C., Ovando, D., Mosqueira, I., Rosenberg, A.A., Selig, E.R., n.d. Improving estimates of population status and trend with superensemble models. Fish and Fisheries 18, 732–741. https://doi.org/10.1111/faf.12200
-
- Burgess, M.G., McDermott, G.R., Owashi, B., Reeves, L.E.P., Clavelle, T., Ovando, D., Wallace, B.P., Lewison, R.L., Gaines, S.D., Costello, C., 2018. Protecting marine mammals, turtles, and birds by rebuilding global fisheries. Science 359, 1255–1258. https://doi.org/10.1126/science.aao4248
-
-Costello, C., Ovando, D., Clavelle, T., Strauss, C.K., Hilborn, R., Melnychuk, M.C., Branch, T.A., Gaines, S.D., Szuwalski, C.S., Cabral, R.B., Rader, D.N., Leland, A., 2016. Global fishery prospects under contrasting management regimes. PNAS 113, 5125–5129. https://doi.org/10.1073/pnas.1520420113
-
-Costello, C., Ovando, D., Hilborn, R., Gaines, S.D., Deschenes, O., Lester, S.E., 2012. Status and Solutions for the World’s Unassessed Fisheries. Science 338, 517–520. https://doi.org/10.1126/science.1223389
-
-Dowling, N., Wilson, J., Rudd, M., Babcock, E., Caillaux, M., Cope, J., Dougherty, D., Fujita, R., Gedamke, T., Gleason, M., Guttierrez, M., Hordyk, A., Maina, G., Mous, P., Ovando, D., Parma, A., Prince, J., Revenga, C., Rude, J., Szuwalski, C., Valencia, S., Victor, S., 2016. FishPath: A Decision Support System for Assessing and Managing Data- and Capacity- Limited Fisheries, in: Quinn II, T., Armstrong, J., Baker, M., Heifetz, J., Witherell, D. (Eds.), Assessing and Managing Data-Limited Fish Stocks. Alaska Sea Grant, University of Alaska Fairbansk.
-
-Fogarty, M.J., Rosenberg, A.A., Cooper, A.B., Dickey-Collas, M., Fulton, E.A., Gutiérrez, N.L., Hyde, K.J.W., Kleisner, K.M., Kristiansen, T., Longo, C., Minte-Vera, C.V., Minto, C., Mosqueira, I., Osio, G.C., Ovando, D., Selig, E.R., Thorson, J.T., Ye, Y., 2016. Fishery production potential of large marine ecosystems: A prototype analysis. Environmental Development, SI:Ecosystem-based LME Mgt 17, Supplement 1, 211–219. https://doi.org/10.1016/j.envdev.2016.02.001
-
-Hammerschlag, N., Ovando, D., Serafy, J.E., 2010. Seasonal diet and feeding habits of juvenile fishes foraging along a subtropical marine ecotone. Aquatic Biology 9, 279–290.
-Hilborn, R., Ovando, D., 2014. Reflections on the success of traditional fisheries management. ICES J. Mar. Sci. 71, 1040–1046. https://doi.org/10.1093/icesjms/fsu034
-
-Ovando, D., Dougherty, D., Wilson, J.R., 2016a. Market and design solutions to the short-term economic impacts of marine reserves. Fish Fish n/a-n/a. https://doi.org/10.1111/faf.12153
-
-Ovando, D., Poon, S., Costello, C., 2016b. Opportunities and precautions for integrating cooperation and individual transferable quotas with territorial use rights in fisheries. Bulletin of Marine Science.
-
-Ovando, D., Deacon, R.T., Lester, S.E., Costello, C., Van Leuvan, T., McIlwain, K., Strauss, K.C., Arbuckle, M., Fujita, R., Gelcich, S., Uchida, H., 2013. Conservation incentives and collective choices in cooperative fisheries. Marine Policy 37, 132–140. https://doi.org/10.1016/j.marpol.2012.03.012
-Rahimi, S., Gaines, S.D., Gelcich, S., Deacon, R., Ovando, D., 2016. Factors driving the implementation of fishery reforms. Marine Policy 71, 222–228. https://doi.org/10.1016/j.marpol.2016.06.005
-
-Rosenberg, A.A., Fogarty, M.J., Cooper, A.B., Dickey-Collas, M., Fulton, E.A., Gutiérrez, N.L., Hyde, K.J.W., Kleisner, K.M., Kristiansen, T., Longo, C., Minte-Vera, C., Minto, C., Mosqueira, I., Chato Osio, G., Ovando, D., Selig, E.R., Thorson, J.T., Ye, Y., 2014. Developing new approaches to global stock status assessment and fishery production potential of the seas, FAO Fisheries and Aquaculture Circular. Food and Agriculture Organization of the United Nations.
-
-Rosenberg, A.A., Kleisner, K.M., Afflerbach, J., Anderson, S.C., Dickey-Collas, M., Cooper, A.B., Fogarty, M.J., Fulton, E.A., Gutiérrez, N.L., Hyde, K.J.W., Jardim, E., Jensen, O.P., Kristiansen, T., Longo, C., Minte-Vera, C.V., Minto, C., Mosqueira, I., Osio, G.C., Ovando, D., Selig, E.R., Thorson, J.T., Walsh, J.C., Ye, Y., 2017. Applying a New Ensemble Approach to Estimating Stock Status of Marine Fisheries around the World. CONSERVATION LETTERS n/a-n/a. https://doi.org/10.1111/conl.12363
-
-Szuwalski, C.S., Castrejon, M., Ovando, D., Chasco, B., 2016. An integrated stock assessment for red spiny lobster (Panulirus penicillatus) from the Galapagos Marine Reserve. Fisheries Research 177, 82–94. https://doi.org/10.1016/j.fishres.2016.01.002
+%%------------------------------------------------------------------%%
+%%----------------------------- Preface ----------------------------%%
+%%------------------------------------------------------------------%%
+%% The preface is optional.
+\begin{preface}
+A preface is a statement that either explains the author's
+reasons for pursuing this subject matter or provides a personal
+comment about the subject that would not otherwise be included in
+the document.
+\end{preface}
 
 
-  \end{vitae}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % ABSTRACT %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{abstract}
-    \addcontentsline{toc}{chapter}{Abstract}
-    %todo: max 350 words
+%%------------------------------------------------------------------%%
+%%---------------------- Table of Contents -------------------------%%
+%%------------------------------------------------------------------%%
+%% The table of contents is required.
+\tableofcontents
 
-    $abstract$
-
-    %\abstractsignature
-  \end{abstract}
-	\tableofcontents
-
-	$if(lot)$
-  \listoftables
-  $endif$
-
-  $if(lof)$
-  \listoffigures
-  $endif$
-
-\end{ucfrontmatter}
-
-\begin{ucmainmatter}
-
-$body$
-
-\end{ucmainmatter}
-
-\end{document}
+%%------------------------------------------------------------------%%
+%%---------------------- List of Tables ----------------------------%%
+%%------------------------------------------------------------------%%
+% Recommended if you have tables.  Comment out if you don't habve
+% tables.
+\listoftables
 
 
-%---Set Headers and Footers ------------------------------------------------------
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{{\sf #1 \hspace*{\fill} Chapter~\thechapter}}{} }
-\renewcommand{\sectionmark}[1]{\markright{ {\sf Section~\thesection \hspace*{\fill} #1 }}}
-\fancyhf{}
+%%------------------------------------------------------------------%%
+%%---------------------- List of Figures ---------------------------%%
+%%------------------------------------------------------------------%%
+% Recommended if you have figures.  Comment out if you don't have
+% figures.
+\listoffigures
 
-\makeatletter \if@twoside \fancyhead[LO]{\small \rightmark} \fancyhead[RE]{\small\leftmark} \else \fancyhead[LO]{\small\leftmark}
-\fancyhead[RE]{\small\rightmark} \fi
 
-\def\cleardoublepage{\clearpage\if@openright \ifodd\c@page\else
-  \hbox{}
-  \vspace*{\fill}
+%%------------------------------------------------------------------%%
+%% This signifies that you are done with the frontmatter and ready to
+%% proceed to the main part.  The rest of your document goes below.
+\mainmatter % required
+%%------------------------------------------------------------------%%
+\chapter{This is a Chapter Title}
+You are required to have chapters in your thesis/dissertation.  It is
+also a good idea because it will keep you organized.  You can choose
+to type chapters in the main \LaTeX\ document as I
+do here, or if you want you can keep your chapters in separate files and use
+\texttt{include} to put them here.
+
+\section{Capitalize Each Important Word in a Section Title}
+Make sure you do not have a section unless you have multiple
+sections.  I break this rule in this document so that you can see what
+not to do.  Turn back to the table of contents and notice that there
+is only one subsection in this chapter.  This is bad style that should
+be avoided.
+
+Note that every important word in the section title is capitalized.
+While I was taught you should not do this, the Graduate School here
+requires it.
+
+\subsection{Capitalize Each Important Word in a Subsection Title}
+Make sure you do not have a subsection unless you have multiple
+subsections.  Although \LaTeX\ will allow you further subdivisions, I
+would not recommend it.  If you choose to further subdivide your
+document, you must adjust the format in the class file to match the
+UNCG guidelines.  The class file only corrects the typesetting up to
+subsections.
+
+\chapter{Typesetting Some Mathematics} \label{chap:math}
+In the sections below, you will find some basic constructions.  For
+more elaborate typesetting, ask your local \TeX nician.  Be sure to
+look at the \LaTeX\ source code along with the output so that it makes
+sense.
+
+\section{Constructions You Will Use a Lot}
+Any math should be enclosed in dollar signs so that it shows up like
+this $x = 2$.  Alternatively, you can use slash parentheses \(x = 2\).
+You put displayed
+math---meaning on its own line, centered, like this
+\[a^n + b^n = c^n.\]
+Don't forget the period to end the sentence. Use this construction
+when you need a one line displaymath type equation that will not be
+referenced later.  Note that it does not have a reference number.
+
+It is important to label things that you might refer to at some
+point.  For example, suppose you have a really important equation
+\begin{equation} \label{eq:important}
+  a + b = c.
+\end{equation}
+Then you can refer to the equation later like this
+\eqref{eq:important}.  If you are using the \texttt{hyperref} package
+like this sample, these references can be clicked to warp back to the
+referring point.  Be sure that you are NEVER typing in the reference
+numbers yourself.  The reference numbers will change as you edit and
+write.
+
+A nice package is \texttt{showkeys}.  You use this while you are writing your
+dissertation will reveal the labels so that you don't need to remember
+them.
+
+When you refer to a page, use \texttt{pageref}.  When you refer to a
+Theorem, Corollary, Chapter, etc by number, use \texttt{ref}.  Use
+\texttt{eqref} to refer to equations. Note the
+use of the tilde instead of a space to ensure that the line break does
+not occur between the word ``Chapter'' and the number in
+Chapter~\ref{chap:math}.
+
+When you want to align some mathematics, use \texttt{align} or
+\texttt{align*}.  The starred version is to be used if you do not
+want the equations numbered or labelled.  Do not use
+\texttt{equationarray} as the spacing will be wrong.
+
+\begin{theorem} \label{thm:ridiculous}
+  If there exists numbers $a$ and $b$ such that $a = b$, then $1 = 2$.
+\end{theorem}
+\begin{proof}
+  Suppose $a = b$.  Then
+  \begin{align*}
+    a^2 &= ab\\
+    2a^2 &= a^2 + ab\\
+    2a^2 - 2ab &= a^2 - ab\\
+    2(a^2 - ab) &= a^2 - ab.
+  \end{align*}
+  Divide both sides by $a^2 - ab$ to get the desired result.
+\end{proof}
+
+
+Theorem~\ref{thm:ridiculous} immediately implies the following.
+\begin{corollary}\label{cor:absurd}
+  I am the pope.
+\end{corollary}
+
+Here is how you do citations.  Here are a
+few more references \cite{staffeldt, grun.book} and \cite[Theorem~1]{A}.  You can
+also cite websites \cite{wiki:xxx}
+Be sure to latex, latex, bibtex, latex, latex after you add
+a new reference.  The extra latex may or may not be necessary, but at
+least once before and after the bibtex call most definitely are
+required.  You should latex at least twice before submitting to be
+sure the page count is correct on the abstract page.
+
+\begin{lemma}\label{lem:ex}
+Lemmas are statements that are helpful for proving theorems.
+\end{lemma}
+
+\begin{theorem}[A Nice Theorem] Theorems are your big results.  The
+  square brackets in the \texttt{tex} file show you how to format
+  things when the theorem has a name.
+\end{theorem}
+\begin{proof}
+Most theorems should be followed directly by a proof.  This is how you
+create a proof environment.  The nice QED box shows up automatically
+at the end.
+\end{proof}
+
+\begin{corollary}
+Corollaries are facts that follow easily from results in theorems.
+\end{corollary}
+
+Here is how you typeset an algorithm. Notice that the outside
+construction is so that you can get the labels and numbering right.
+The inner \texttt{uncgalgorithm} environment takes two inputs---input
+and output.
+
+\begin{algorithm}[Shampoo Bottle Method]\label{alg:wash} This is how
+  you wash your head.
+\begin{uncgalgorithm}{Dirty hair}{Clean hair}
+\begin{enumerate}
+\item Lather.
+\item Rinse.
+\item Repeat.
+\end{enumerate}
+\end{uncgalgorithm}
+\end{algorithm}
+
+\begin{proposition}
+Propositions tend to be my default position on results. Only the big results
+are deemed Theorems.
+\end{proposition}
+
+Definitions are the foundation of good mathematics.
+\begin{definition}
+  A positive integer is \emph{perfect} if it is equal to the sum of
+  its proper positive divisors.
+\end{definition}
+
+\begin{example}
+  $6$ is perfect because $6 = 1 + 2 + 3$.
+\end{example}
+
+\subsection{Constructions You May Have To Use}
+Some areas of mathematics requires the use of tables, arrays, or figures.
+Arrays are to be used in math mode, while tables are not.
+
+\begin{table}[htbp]
+ \titlecaption{Some Title for This Table}{This is where a longer
+   description would go.}\label{tab:nonsense}
+\centering
+\begin{tabular}{|l|c|r|}
+ \hline
+ This & is & an\\
+ example & of & a\\
+ table & showing  various & options.\\
+ \hline
+ \end{tabular}
+ \end{table}
+
+Table captions go above the table.  Note the use of
+\texttt{titlecaption} above the Table~\ref{tab:nonsense}.  This is
+a macro that I wrote (see the preamble).  I did this because of the
+Graduate School requirement that each table and Figure have a title.
+Each important word of the title should be capitalized.  The title
+goes in the List of Figures/Tables.  You should put the caption above
+tables and below figures.  Also note the use of \texttt{centering}.
+This gets rid of a bit of extra whitespace and is suggested for
+figures and tables. You can look online for more intricate tables, as
+well as lengthy discussions about the proper way to present data
+(lines versus no lines).  We also make use of the \texttt{booktabs}
+package in Table~\ref{tab:lights}.   Notice the blank ine before the
+table.  This allows \LaTeX\ to end this paragraph, which usually
+results in better placement of the table.  If you find that the table
+is not placed correctly (perhaps splitting a line mid-sentence)
+utilize the \texttt{[htbp]} option as shown in Table~\ref{tab:lights}.
+
+\begin{table}[htbp]
+ \titlecaption{Meaning of Street Light Colors}{}
+ \label{tab:lights}
+\centering
+\begin{tabular}{c c}
+ \toprule
+ Colors & Meaning\\
+ \midrule
+ Red  & Stop \\
+ Green & Go \\
+ Yellow & Speed up\\
+ \bottomrule
+ \end{tabular}
+ \end{table}
+
+You may also come across the need to have a figure.  You will need to
+use the package \texttt{graphicx}.  Note that defining the width, but not the
+height will scale the image both vertically and horizontally so that
+it does not become distorted.   The size can be an
+absolute size, or, as is done in Figure~\ref{fig:logo}, the size can be
+relative to the width of the text.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{logo}
+\titlecaption{Spartan Logo}{The UNCG Spartan Logo is show here at 0.65
+of the text width.}
+\label{fig:logo}
+\end{figure}
+
+
+\chapter{Odds and ends}
+There are a few things that you should keep in mind.
+\begin{enumerate}
+\item The default font size is 12\;pt.  Be nice to the readers of your
+  dissertation.  Do not make this smaller unless you have good reason
+  to do so.
+\item The default degree of the class file is PhD.  If you are using
+  the class file for a Masters thesis, be sure to pass the \texttt{ma}
+  option to the class file.
+\item Don't mess with the spacing of things by hand too much.  If you
+  find that something is wrong, it is better for the future
+  generations of grad students to address the issue in the class file.
+\item If you want to print a copy for a colleague, but want to save
+  trees, you can obtain singlespacing by using
   \begin{center}
-    This page intentionally left blank
+    \verb+\renewcommand{\doublespacing}{\singlespacing}+,
   \end{center}
-  \vspace{\fill}
-  \thispagestyle{plain}
-  \newpage
-  \fi \fi}
-\makeatother
-\fancyfoot[c]{\textrm{\textup{\thepage}}} % page number
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+  which essentially redefines doublespacing to mean singlespacing.
+\end{enumerate}
 
-\fancypagestyle{plain} { \fancyhf{} \fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+\chapter{Final Push}
+\section{The Bibliography}
+That looks like the end of the material, but you are still required to
+have a bibliography.  There is a nice structure for organizing your
+references and creating a bibliography.  Most math references you
+need will have the citation information on
+\url{http://www.ams.org/mathscinet/}.  You can cut and paste the
+bibtex information into your \texttt{bib} file.  Don't worry if you
+don't cite all of the references from your \texttt{bib} in your paper.
+Bibtex is smart enough only to put the ones you reference into your
+bibliography.  Whenever you reference a new article in your paper, you
+need to do the following.
+\begin{enumerate}
+\item Run latex so that it knows you cite a new source.
+\item Run bibtex to grab the citation information from your
+  \texttt{bib} file.
+\item Run latex so that the information gets placed in your document.
+\end{enumerate}
 
+\section{Dealing with Formatting Issues}
+\LaTeX\ does a great job of making the right choices for formatting,
+but sometimes the Graduate School disagrees.  Here are some common
+issues, and how to correct them.  These are fixes that you do at the
+end, after your content is complete.
+
+\subsection{Widows and Orphans}
+You can read about widows and orphans at
+\begin{center}
+  \url{https://en.wikipedia.org/wiki/Widows_and_orphans}
+\end{center}
+To fix such things, you need to either add or delete a line from a
+given page.  This can be achieved most cleanly by using the command
+\texttt{\textbackslash enlargethispage}.  This will enlarge the
+\texttt{\textbackslash textheight}
+for the current page by the specified amount;
+e.g. \texttt{\textbackslash enlargethispage\{\textbackslash baselineskip\}} will allow one
+additional line. You can use negative amounts to shrink the page.
+
+\subsection{Float in the Middle of a Sentence}
+Sometimes, you will have a figure or a table float to the top of a
+page, where it splits a sentence from the previous page.  You can
+usually avoid this by the following.
+\begin{enumerate}
+\item Put the float after the paragraph.  Be sure to have a blank line
+  before the start of the float so that \LaTeX\ knows the paragraph is
+  complete.
+\item Use the \texttt{[htbp]} option on to tell \LaTeX\ that you
+  prefer it placed after the paragraph.
+\end{enumerate}
+If this doesn't work, there are other options to try.  This includes
+putting your float later in the document, or utilizing a package such
+as \texttt{placeins},which defines a function called
+\texttt{FloatBarrier}.
+
+%%------------------------------------------------------------------%%
+%%------------------------ Bibliography ----------------------------%%
+%%------------------------------------------------------------------%%
+%% Replace the myreferences with the name of your bib file.  Then you
+%% can run bibtex as usual.
+%%------------------------------------------------------------------%%
+
+\bibliography{myreferences}
+\bibliographystyle{amsalpha}
+
+%%------------------------------------------------------------------%%
+%%------------------------- Appendices -----------------------------%%
+%%------------------------------------------------------------------%%
+%% If you choose not to have appendices, comment out the \appendix
+%% line and the chapters below.
+%%------------------------------------------------------------------%%
+\appendix
+\chapter{Why use appendices?}\label{app:why}
+After the bibliography is an optional portion of appendices.
+The appendices may contain tables of data that would interfere with
+the easy reading of the text, development of mathematical treatments,
+very long quotations, schedules, forms, interviews, inventories,
+samples of test items, surveys, illustrative materials, and any other
+supplementary material considered worthy of recording or too detailed
+to be included in the text. If diverse materials are included, they
+should be grouped into categories and each category labeled as a
+separate appendix (ex: Appendix A. Tables; Appendix B. Consent Forms;
+etc.) The Graduate School does not allow appendices to have sections.
+
+%%------------------------------------------------------------------%%
+\backmatter
+%%------------------------------------------------------------------%%
+%%----------------------- YOU ARE FINISHED ! -----------------------%%
+%%------------------------------------------------------------------%%
+\end{document}
