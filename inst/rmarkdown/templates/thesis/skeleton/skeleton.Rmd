@@ -1,26 +1,32 @@
 ---
-# UCSB thesis fields
-title: "Improving the Management of Marine Resources through Economics and Data Science"
-author: "Daniel A. Ovando"
-degree_year: "2018"
-degree_month: "June"
-defense_year: "2019"
-defense_month: "May"
-program: "Slowly and Painfully Working Out the Surprisingly Obvious"
-uc_campus: "Santa Barbara"
-report: "Dissertation"
-degree: "Doctor of Philosphy"
-chair: "Professor Christopher Costello"
-signature1: "Professor Steven Gaines"
-signature2: "Professor Ray Hilborn"
-signature3: "Professor Olivier Deschenes"
-abstract: "The data say 'meh'"
-acknowledgments: "Thanks everyone!"
-dedication: "To Hobbes"
-# End of UCSB thesis fields
+# UNCG thesis fields
+title: "Dan River Coal Ash Stuff"
+firstname: "Ashley S."
+lastname: "Williams"
+degree_year: "2019"
+chair: "Parke Rublee"
+signature1: "Anne Hershey"
+signature2: "Martin Tsui"
+signature3:
+abstract: "This is my abstrace about coal ash. The abstract page is a required component of the thesis/dissertation.
+The abstract should be a brief summary of the paper, stating only the
+problem, procedures used, and the most significant results and
+conclusions. Explanations and opinions are omitted. Remember to
+include the necessary information regarding any multimedia components
+included in the document. The abstract must be approved by your
+advisor/committee chair."
+acknowledgments: "It is customary to recognize the assistance of the advisor and/or
+committee chair, all other members of the committee, and only those
+organizations and/or persons who actually aided the research. If
+financial support was provided to make the study possible, credit for
+such assistance should be given.
+"
+dedication: " The dedication is often short.  Longer statements are usually in
+ the acknowledgements.  The dedication is optional."
+# End of UNCG thesis fields
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
-output: 
+output:
   spartanodown::thesis_pdf:
     latex_engine: xelatex
   # spartanodown::thesis_gitbook: default
@@ -34,8 +40,8 @@ link-citations: yes
 linkcolor: blue
 citecolor: blue
 urlcolor: blue
-lot: true # create list of tables
-lof: true # create list of figures
+#lot: true # create list of tables I might not need this
+#lof: true # create list of figures
 #space_between_paragraphs: true
 # Delete the # at the beginning of the previous line if you'd like
 # to have a blank new line between each paragraph
@@ -63,5 +69,3 @@ if(!require(gauchodown))
   devtools::install_github("ashley-williams/spartanodown")
 library(spartanodown)
 ```
-
-

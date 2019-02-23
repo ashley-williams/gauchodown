@@ -19,7 +19,7 @@
                                 % capitalized in
                           % chapter titles.  Note that the overload
                           % option is used, so this redefines
-                          % \MakeUppercase 
+                          % \MakeUppercase
 \RequirePackage[noadjust]{cite}
 \RequirePackage{indentfirst}
 \RequirePackage[T1]{fontenc}
@@ -37,17 +37,17 @@
 \DeclareOption{ms}{\renewcommand{\uncg@thesistype}{ms} \@MStrue
   \@MAfalse \@PHDfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
-\ProcessOptions\relax  
+\ProcessOptions\relax
 
 \contentsmargin[4em]{18pt}  % sets how far the multiline section
                             % titles can come over and also the
                             % distance the leaders stay from the page
-                            % numbers. 
+                            % numbers.
 
 %-----------------------------------------------------------------------------
-% Count the number of co-chairs 
+% Count the number of co-chairs
 \newcounter{@chair}           % Number of chairs defined so far.
-\setcounter{@chair}{0}        
+\setcounter{@chair}{0}
 \newcommand{\chair}[1]{
   \addtocounter{@chair}{1}    % Inc. num of classes to include this
                               % new one.
@@ -63,7 +63,7 @@
 %-----------------------------------------------------------------------------
 % Count the number of members (not including chair)
 \newcounter{@member}           % Number of members defined so far.
-\setcounter{@member}{0}        
+\setcounter{@member}{0}
 \newcommand{\member}[1]{
   \addtocounter{@member}{1}    % Inc. num of classes to include this
                                % new one.
@@ -94,14 +94,14 @@
 
 \if@MA{\gdef\@thesis{thesis}
   \gdef\@capthesis{Thesis}
-  \gdef\@degree{Master~of~Arts} 
-  \gdef\@shortdegree{M.A.}} \else 
-\if@MS{\gdef\@thesis{thesis} 
-  \gdef\@capthesis{Thesis} 
-  \gdef\@degree{Master~of~Science} 
+  \gdef\@degree{Master~of~Arts}
+  \gdef\@shortdegree{M.A.}} \else
+\if@MS{\gdef\@thesis{thesis}
+  \gdef\@capthesis{Thesis}
+  \gdef\@degree{Master~of~Science}
   \gdef\@shortdegree{M.S.}} \else
-\if@PHD{\gdef\@thesis{dissertation} 
-  \gdef\@capthesis{Dissertation} 
+\if@PHD{\gdef\@thesis{dissertation}
+  \gdef\@capthesis{Dissertation}
   \gdef\@degree{Doctor~of~Philosophy}
   \gdef\@shortdegree{Ph.D.}} \fi\fi\fi
 
@@ -113,7 +113,7 @@
 }
 
 \newenvironment{abstract}{%
-  \singlespacing   
+  \singlespacing
   \thispagestyle{empty}
   \setcounter{page}{0}
   \noindent
@@ -121,7 +121,7 @@
     \uncg@authorfirstmiddle{}},~\@shortdegree~\uncg@thesistitle. (\uncg@year)\\
   Directed by
   \ifthenelse{\value{@chair}=1}{Dr.~\uncg@chair}{Dr.~\uncg@chair\ and
-    Dr.~\uncg@cochair}. \pageref{LastPage} pp.\\ 
+    Dr.~\uncg@cochair}. \pageref{LastPage} pp.\\
   %line break above needed to make above singlespace and below
   %doublespace
 
@@ -133,7 +133,7 @@
 }
 
 
-% Length of signature lines and height 
+% Length of signature lines and height
 \newlength{\namewidth}
 \setlength{\namewidth}{2.8in} % Hard-coded to align start of signature
                             % with first o in Greensboro
@@ -217,7 +217,7 @@ Committee Co-Chair &
      &\uncg@signatureline{\uncg@memberIII}
     \end{tabular}
   }{} % end ifthenelse = 4
-  
+
 \ifthenelse{\value{@member}=4}{
 \begin{tabular}[t]{r@{\hspace{2.7pt}}l}%c@{\hspace{0.5in}}c}
 \uncg@chairtable
@@ -256,7 +256,7 @@ Committee Co-Chair &
 
     \uncg@author \par
     \vspace*{2\baselineskip}
-    
+
     \singlespacing
    A \@capthesis\ Submitted to \\
   the Faculty of The Graduate School at\\
@@ -309,7 +309,7 @@ Committee Co-Chair &
 %% Approval page
 \newcommand{\makeapprovalpage}{
 \shortchapter*{APPROVAL PAGE}
-\vspace*{0.5\baselineskip}  
+\vspace*{0.5\baselineskip}
 
   This \@thesis\ written by \uncg@author\ has been approved by the
   following committee of the Faculty of The Graduate School at The
@@ -331,7 +331,7 @@ Committee Co-Chair &
 \titleformat{\chapter}[display]{\centering}{\MakeUppercase{\chaptername}\ \thechapter}{0pt} {\uppercase
 } % before-code
 % \titlespacing* to make sure spacing is correct on top of pages also.
-\titlespacing*{\chapter}{0pt}{-24pt + 0.5in}{12pt}  
+\titlespacing*{\chapter}{0pt}{-24pt + 0.5in}{12pt}
 % need 12pt (.5 \baselineskip) in last to make triple space before text
 % need -\baselineskip to make the margin 1.5 in.  Then increase space
 % by 0.5 in.
@@ -348,7 +348,7 @@ Committee Co-Chair &
 %-------------------------------------------------------------------------
 
 \titleformat{\shortchapter}[display]{\centering}{~\vspace*{-24pt}}{0pt}{\uppercase}[]
-\titlespacing*{\shortchapter}{0pt}{-24pt}{0pt}  
+\titlespacing*{\shortchapter}{0pt}{-24pt}{0pt}
 % need 12pt (.5 \baselineskip) in last to make triple space before
 % text, but this is added to each page that uses it instead.  e.g.,
 % acknowledgment, preface.  This is to make the TOC easier to debug.
@@ -359,13 +359,13 @@ Committee Co-Chair &
 % section/ or subsection starts a page.
 \titleformat{\section}[hang] {\vspace{0.85cm}\vspace*{-0.85cm}\bf}{\thesection. }{0pt}{}
 % \titlespacing* to make sure spacing is correct on top of pages also.
-\titlespacing*{\section}{0pt}{0pt \@plus1ex \@minus.2ex}{0pt\@plus.2ex}  
+\titlespacing*{\section}{0pt}{0pt \@plus1ex \@minus.2ex}{0pt\@plus.2ex}
 %\titlespacing*{\section}{0pt}{0*}{0*}
 % remove spacing before and after
 
 \titleformat{\subsection}[hang] {\vspace{0.85cm}\vspace*{-0.85cm}\it}{\thesubsection. }{0pt}{}
 
-\titlespacing*{\subsection}{0pt}{0pt \@plus1ex \@minus.2ex}{0pt \@plus.2ex}  
+\titlespacing*{\subsection}{0pt}{0pt \@plus1ex \@minus.2ex}{0pt \@plus.2ex}
 %\titlespacing*{\subsection}{0pt}{0*}{0*}
 % remove spacing before and after
 %-------------------------------------------------------------------------
@@ -374,30 +374,30 @@ Committee Co-Chair &
   %  need 7.27pt since 12/\baselinestretch = 7.27pt
   % commented out what they would be using the conversion.
   % make tyhe plus minus a bit smaller.
-  %\setlength{\abovedisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}% 
-  %\setlength{\belowdisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}% 
+  %\setlength{\abovedisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}%
+  %\setlength{\belowdisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}%
   %\setlength{\abovedisplayshortskip}{\z@ \@plus1.8\p@}%
   %\setlength{\belowdisplayshortskip}{3.9\p@ \@plus2.1\p@
   %  \@minus1.8\p@}%
-  \setlength{\abovedisplayskip}{7.27\p@ \@plus1\p@ \@minus1\p@}% 
-  \setlength{\belowdisplayskip}{7.27\p@ \@plus1\p@ \@minus1\p@}% 
+  \setlength{\abovedisplayskip}{7.27\p@ \@plus1\p@ \@minus1\p@}%
+  \setlength{\belowdisplayskip}{7.27\p@ \@plus1\p@ \@minus1\p@}%
   \setlength{\abovedisplayshortskip}{\z@ \@plus1\p@}%
-  \setlength{\belowdisplayshortskip}{3.9\p@ \@plus1\p@ \@minus1\p@}% 
+  \setlength{\belowdisplayshortskip}{3.9\p@ \@plus1\p@ \@minus1\p@}%
 }
 % if a figure is alone on a page, move it to the very top
 \setlength{\@fptop}{0pt}
 
 \g@addto@macro\listoffigures{%
-  \addtocontents{lof}{~\hfill Page\par}  
-  \addtocontents{lof}{\vspace*{-5pt}}  
+  \addtocontents{lof}{~\hfill Page\par}
+  \addtocontents{lof}{\vspace*{-5pt}}
 }
 \g@addto@macro\tableofcontents{%
 \addtocontents{toc}{~\hfill Page\par }
-\addtocontents{toc}{\vspace*{-5pt}}  
+\addtocontents{toc}{\vspace*{-5pt}}
 }
 \g@addto@macro\listoftables{%
-  \addtocontents{lot}{~\hfill Page\par}  
-  \addtocontents{lot}{\vspace*{-5pt}}  
+  \addtocontents{lot}{~\hfill Page\par}
+  \addtocontents{lot}{\vspace*{-5pt}}
 }
 
 \newcommand{\mychaptercounter}{0}
@@ -463,7 +463,7 @@ Committee Co-Chair &
 %\titlecontents{shortchapter}[0pt] {\addvspace{10pt}
 %\singlespacing}{}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
 \titlecontents{shortchapter}[0pt] {\singlespacing}{}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
- 
+
 %\titlecontents{chapter}[.85in]
 %              {\addvspace{10pt} \singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
@@ -477,18 +477,18 @@ Committee Co-Chair &
               {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
 \titlecontents{figure}[6.3em]
-              {\singlespacing\hspace*{-6.3em}}{Figure~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]  
+              {\singlespacing\hspace*{-6.3em}}{Figure~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
 
 \titlecontents{table}[6.3em]
-              {\singlespacing\hspace*{-6.3em}}{Table~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]  
+              {\singlespacing\hspace*{-6.3em}}{Table~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
 
 \titlecontents{subsection}[1.5in + 2em]
-              {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{5pt}] 
+              {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{5pt}]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% An algorithm environment for typesetting algorithms consistently.  
+%% An algorithm environment for typesetting algorithms consistently.
 %% Takes 2 arguments--the input and output.
 %% Current plan is to typeset input and output only and switch font to
               %% rm
@@ -513,12 +513,12 @@ Committee Co-Chair &
 }
 
 % shrink the distance between equations in multiline environments
-%\setlength\jot{-1ex}  
+%\setlength\jot{-1ex}
 \renewcommand*\arraystretch{0.75}
 \raggedbottom
 
-%\providecommand*{\toclevel@shortchapter}{0} 
-%\providecommand*{\toclevel@section}{1} 
+%\providecommand*{\toclevel@shortchapter}{0}
+%\providecommand*{\toclevel@section}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  APPENDIX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,8 +530,7 @@ Committee Co-Chair &
 \titleformat{\chapter}[display]{\centering}{APPENDIX\ \thechapter}{0pt}
             {\uppercase
 } % before-code
-\titlespacing{\chapter}{0pt}{-24pt}{12pt}  
+\titlespacing{\chapter}{0pt}{-24pt}{12pt}
 \titlecontents{chapter}[102pt]
-              {\addvspace{10pt}\singlespacing\hspace*{-102pt}}{APPENDIX~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]  
+              {\addvspace{10pt}\singlespacing\hspace*{-102pt}}{APPENDIX~\thecontentslabel.~}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
 }
-
