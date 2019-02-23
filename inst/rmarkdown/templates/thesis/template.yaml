@@ -1,4 +1,4 @@
-name:  UCSB-Dissertation
+name:  UNCG Thesis
 description: >
- Template for creating a PhD Thesis at UCSB using R Markdown based on the UCSB LaTeX template and the R bookdown package.
+ Template for creating a Thesis/Dissertation at UNCG using R Markdown based on the UNCG LaTeX template and the R bookdown package.
 
