@@ -373,7 +373,7 @@ Committee Co-Chair &
 \g@addto@macro\normalsize{%
   %  need 7.27pt since 12/\baselinestretch = 7.27pt
   % commented out what they would be using the conversion.
-  % make tyhe plus minus a bit smaller.
+  % make the plus minus a bit smaller.
   %\setlength{\abovedisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}%
   %\setlength{\belowdisplayskip}{7.27\p@ \@plus1.8\p@ \@minus4.2\p@}%
   %\setlength{\abovedisplayshortskip}{\z@ \@plus1.8\p@}%
