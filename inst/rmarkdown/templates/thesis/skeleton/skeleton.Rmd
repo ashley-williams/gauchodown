@@ -30,7 +30,7 @@ output:
   spartanodown::thesis_pdf:
     latex_engine: xelatex
   # spartanodown::thesis_gitbook: default
-  # spartanodown::thesis_word: default
+    spartanodown::thesis_word: default
   # spartanodown::thesis_epub: default
 bibliography: bib/thesis.bib
 # Download your specific bibliography database file and refer to it in the line above.
@@ -40,8 +40,8 @@ link-citations: yes
 linkcolor: blue
 citecolor: blue
 urlcolor: blue
-#lot: true # create list of tables I might not need this
-#lof: true # create list of figures
+lot: true # create list of tables I might not need this
+lof: true # create list of figures
 #space_between_paragraphs: true
 # Delete the # at the beginning of the previous line if you'd like
 # to have a blank new line between each paragraph
