@@ -8,7 +8,7 @@ chair: "Parke Rublee"
 signature1: "Anne Hershey"
 signature2: "Martin Tsui"
 signature3:
-abstract: "This is my abstrace about coal ash. The abstract page is a required component of the thesis/dissertation.
+abstract: "This is my abstract. The abstract page is a required component of the thesis/dissertation.
 The abstract should be a brief summary of the paper, stating only the
 problem, procedures used, and the most significant results and
 conclusions. Explanations and opinions are omitted. Remember to
