@@ -30,7 +30,7 @@ output:
   spartanodown::thesis_pdf:
     latex_engine: xelatex
   # spartanodown::thesis_gitbook: default
-    spartanodown::thesis_word: default
+  spartanodown::thesis_word: default
   # spartanodown::thesis_epub: default
 bibliography: bib/thesis.bib
 # Download your specific bibliography database file and refer to it in the line above.

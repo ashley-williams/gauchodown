@@ -460,18 +460,18 @@ Committee Co-Chair &
 
 \patchcmd{\@chapter}{#1}{\MakeUppercase{#1}}{}{}
 
-%\titlecontents{shortchapter}[0pt] {\addvspace{10pt}
-%\singlespacing}{}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
+\titlecontents{shortchapter}[0pt] {\addvspace{10pt}
+\singlespacing}{}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
 \titlecontents{shortchapter}[0pt] {\singlespacing}{}{}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
-%\titlecontents{chapter}[.85in]
-%              {\addvspace{10pt} \singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
+\titlecontents{chapter}[.85in]
+              {\addvspace{10pt} \singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
 \titlecontents{chapter}[.85in]
               {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]
 
-%\titlecontents{section}[1.35in]
-%              {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
+\titlecontents{section}[1.35in]
+              {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-10pt}]
 
 \titlecontents{section}[1.35in]
               {\singlespacing\hspace*{-.2in}}{\contentslabel{.5in}}{\hspace*{-.5in}}{\titlerule*[6pt]{.}\contentspage}[\vspace*{-5pt}]

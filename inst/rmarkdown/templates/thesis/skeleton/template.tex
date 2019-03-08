@@ -1,5 +1,6 @@
 %Time-stamp: "Last modified: 2018-08-02 10:42:16 (d_yasaki)"
 \documentclass[ms]{uncgdissertationexp}
+\setcounter{secnumdepth}{1}
 % default is 12pt, phd, doublespaced.
 % Masters students should use the ma on as shown below.
 % \documentclass[ma]{uncgdissertation}
@@ -24,22 +25,25 @@
 \usepackage{tabu}
 \usepackage{longtable}
 \usepackage{titlesec}
+\usepackage{lmodern}
 
-\usepackage{microtype, amsmath, amsfonts, amsthm, graphicx, booktabs}
+\usepackage{microtype, amsfonts, amsthm}
 \usepackage[colorlinks=false]{hyperref}
 \pdfstringdefDisableCommands{\let\MakeUppercase\relax}
 %\usepackage{showframe}
 %useful package to ensure margins are correct.
 
 % fix for pandoc 1.14
-\providecommand{\tightlist}{%
+\providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\def\tightlist{} %%tightlist error
+\def\tightlist{} 
+%%tightlist error
 
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
+%$if(highlighting-macros)$  
+%I don't know what this does...
+%$highlighting-macros$
+%$endif$
 
 % commands and environments needed by pandoc snippets
 % extracted from the output of `pandoc -s`
@@ -59,41 +63,7 @@ $endif$
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
 
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex,
-              colorlinks=true,
-              linkcolor=blue]{hyperref}
-\else
-  \usepackage[unicode=true,
-              colorlinks=true,
-              linkcolor=blue]{hyperref}
-\fi
-\hypersetup{breaklinks=true, pdfborder={0 0 0}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
 
 
 %%------------------------------------------------------------------%%
@@ -159,7 +129,7 @@ $endif$
 \newcommand{\ZZ}{\mathbb{Z}}  % Integers
 \newcommand{\XX}{\mathfrak{X}}
 
-\bibliography{references}
+%\bibliography{references}
 
 %%------------------------------------------------------------------%%
 
@@ -232,10 +202,10 @@ $endif$
 %%------------------------------------------------------------------%%
 % Recommended if you have tables.  Comment out if you don't have
 % tables.
+
+  $if(lot)$
 \listoftables
-$if(lof)$
-\listoftables
-$endif$
+  $endif$
 
 
 %%------------------------------------------------------------------%%
@@ -243,10 +213,10 @@ $endif$
 %%------------------------------------------------------------------%%
 % Recommended if you have figures.  Comment out if you don't have
 % figures.
+
+  $if(lof)$
 \listoffigures
-$if(lot)$
-\listoffigures
-$endif$
+  $endif$
 
 
 %%------------------------------------------------------------------%%
@@ -254,9 +224,10 @@ $endif$
 %% proceed to the main part.  The rest of your document goes below.
 \mainmatter % required
 %%------------------------------------------------------------------%%
-$body$
+ 
+  $body$
 
-\section{The Bibliography}
+%\section{The Bibliography}
 %%------------------------------------------------------------------%%
 %%------------------------ Bibliography ----------------------------%%
 %%------------------------------------------------------------------%%
@@ -273,7 +244,7 @@ $body$
 %% If you choose not to have appendices, comment out the \appendix
 %% line and the chapters below.
 %%------------------------------------------------------------------%%
-%%\appendix
+\appendix
 %%\chapter{Why use appendices?}\label{app:why}
 
 %%------------------------------------------------------------------%%
